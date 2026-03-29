@@ -156,8 +156,6 @@ if not DEBUG:
 
 CORS_ALLOW_ALL_ORIGINS = False
 
-# Set CORS_ALLOWED_ORIGINS_ENV in your Render environment (comma-separated)
-# e.g. https://upright-frontend.vercel.app
 _extra_cors = [
     o.strip()
     for o in os.environ.get('CORS_ALLOWED_ORIGINS_ENV', '').split(',')
@@ -166,6 +164,7 @@ _extra_cors = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'https://upright-frontend.vercel.app',
 ] + _extra_cors
 
 REST_FRAMEWORK = {
